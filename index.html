@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Fuzz4All : Universal Fuzzing with Large Language Models">
+<!--  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fuzz4All : Universal Fuzzing with Large Language Models</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <script>
+    function animate(obj, initVal, lastVal, duration) {
+       let startTime = null;
+
+    //get the current timestamp and assign it to the currentTime variable
+    let currentTime = Date.now();
+
+    //pass the current timestamp to the step function
+    const step = (currentTime ) => {
+
+    //if the start time is null, assign the current time to startTime
+    if (!startTime) {
+       startTime = currentTime ;
+    }
+
+    //calculate the value to be used in calculating the number to be displayed
+    const progress = Math.min((currentTime - startTime)/ duration, 1);
+
+    //calculate what to be displayed using the value gotten above
+    obj.innerHTML = Math.floor(progress * (lastVal - initVal) + initVal);
+
+    //checking to make sure the counter does not exceed the last value (lastVal)
+    if (progress < 1) {
+       window.requestAnimationFrame(step);
+    } else {
+          window.cancelAnimationFrame(window.requestAnimationFrame(step));
+       }
+    };
+    //start animating
+       window.requestAnimationFrame(step);
+    }
+
+    let text1 = document.getElementById('totalnum');
+    let text2 = document.getElementById('fixednum');
+
+    const load = () => {
+       animate(text1, 0, 1667, 3000);
+       animate(text2, 0, 1244, 3000);
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"><i>Fuzz4All</i> : Universal Fuzzing with Large Language Models</h1>
+<!--          <div class="is-size-5 publication-authors">-->
+<!--            <span class="author-block">-->
+<!--              <a href="https://steven.cs.illinois.edu/">Chunqiu Steven Xia</a><sup>1</sup>,</span>-->
+<!--          </div>-->
+
+<!--          <div class="is-size-5 publication-authors">-->
+<!--            <span class="author-block"><sup>1</sup>UIUC,</span>-->
+<!--&lt;!&ndash;            <span class="author-block"><sup>2</sup>Google Research</span>&ndash;&gt;-->
+<!--          </div>-->
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+<!--              <span class="link-block">-->
+<!--                <a href="https://arxiv.org/pdf/2011.12948"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="fas fa-file-pdf"></i>-->
+<!--                  </span>-->
+<!--                  <span>Paper</span>-->
+<!--                </a>-->
+<!--              </span>-->
+              <span class="link-block">
+                <a href="https://arxiv.org/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+<!--        <h2 class="title is-3">Abstract</h2>-->
+        <div class="content has-text-justified">
+          <p>
+            Fuzzing has achieved tremendous success in discovering bugs and vulnerabilities in various software systems.
+            Systems under test that take in programming or formal language as inputs, e.g., compilers, runtime engines, constraint solvers, and software libraries with accessible APIs, are especially important as they are fundamental building blocks of software development.
+            <b>However, existing fuzzers for such systems often target a specific language, and thus cannot be easily applied to other languages or even other versions of the same language.</b>
+          </p>
+<!--          <p>-->
+<!--           k<b><span id="totalnum">123</span></b>-->
+<!--          </p>-->
+          <div style="text-align: center;">
+          <img SRC="static/images/overview.gif" style="width:900px !important;height:auto !important;">
+            </div>
+          <p>
+            To address these issues, we present <b><i>Fuzz4All</i>, the first fuzzer that is universal in the sense that it can target many input languages and features of these languages.</b>
+            The key idea behind Fuzz4All is to leverage large language models (LLMs) as an input generation and mutation engine, which enables the approach to produce diverse and realistic inputs for any practically relevant language.
+            To realize this potential, we present a novel <b><font color="#0000ff">autoprompting technique</font></b>, which creates LLM prompts that are well-suited for fuzzing,
+            and a novel <b><font color="#9900ff">LLM-powered fuzzing loop</font></b>, which iteratively updates the prompt to create new fuzzing inputs.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+     <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Bugs Found</h2>
+        <p>So far, <i>Fuzz4All</i> has found <b>76</b> bugs across 9 SUTs, we will continue our current fuzzing campaigns as well as applying <i>Fuzz4All</i> on additional languages and SUTs</p>
+
+        <table width="100%">
+        <tr>
+          <td width="25%"><img src="static/images/gcc.png"></td>
+          <td width="25%"><img src="static/images/clang.png"></td>
+          <td width="25%"><img src="static/images/cvc5.png"></td>
+          <td width="25%"><img src="static/images/z3.png"></td>
+        </tr>
+        <table>
+          <table width="100%">
+        <tr>
+          <td width="25%"><b>GCC</b>: 22 bugs</td>
+          <td width="25%"><b>Clang</b>: 20 bugs</td>
+          <td width="25%"><b>CVC5</b>: 6 bugs</td>
+          <td width="25%"><b>Z3</b>: 12 bugs</td>
+        </tr>
+        <table>
+
+        <table width="100%">
+        <tr>
+          <td width="25%"><img src="static/images/go.png"></td>
+          <td width="25%"><img src="static/images/openjdk.png"></td>
+          <td width="25%"><img src="static/images/qiskit.png"></td>
+          <td width="25%"></td>
+        </tr>
+        <table>
+        <table width="100%">
+        <tr>
+          <td width="25%"><b>Go</b>: 4 bugs</td>
+          <td width="25%"><b>Java</b>: 1 bugs</td>
+          <td width="25%"><b>Qiskit</b>: 11 bugs</td>
+          <td width="25%"></td>
+        </tr>
+        <table>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+
+  </div>
+</section>
+
+<br>
+<br>
+<br>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered"></div>
+    <h2 class="title is-3">Authors</h2>
+    <table width="100%">
+    <tr>
+      <td width="20%"><img class="custom-style" src="static/images/steven.jpeg" ></td>
+      <td width="20%"><img class="custom-style" src="static/images/matteo.jpg" ></td>
+      <td width="20%"><img class="custom-style" src="static/images/tom.png" ></td>
+      <td width="20%"><img class="custom-style" src="static/images/michael.jpg" ></td>
+      <td width="20%"><img class="custom-style" src="static/images/lingming.jpeg" ></td>
+    </tr>
+    <table>
+    <table width="100%">
+    <tr>
+      <td width="20%"><a href="https://steven.cs.illinois.edu/"><font size="3">Chunqiu Steven Xia</a></td>
+      <td width="20%"><a href="https://matteopaltenghi.com/"><font size="3">Matteo Paltenghi</a></td>
+      <td width="20%"><a href="https://github.com/jialetomtian"><font size="3">Jia Le Tian</a></td>
+      <td width="20%"><a href="https://software-lab.org/people/Michael_Pradel.html"><font size="3">Michael Pradel</a></td>
+      <td width="20%"><a href="http://lingming.cs.illinois.edu/"><font size="3">Lingming Zhang</a></td>
+    </tr>
+    <table>
+
+  </div>
+</section>
+
+<br>
+<br>
+
+<!--<section class="section" id="BibTeX">-->
+<!--  <div class="container is-max-desktop content">-->
+<!--    <h2 class="title">BibTeX</h2>-->
+<!--    <pre><code>@article{park2021nerfies,-->
+<!--  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},-->
+<!--  title     = {Nerfies: Deformable Neural Radiance Fields},-->
+<!--  journal   = {ICCV},-->
+<!--  year      = {2021},-->
+<!--}</code></pre>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Template adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfiese</a> by Keunhong Park et al.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
