@@ -6,7 +6,7 @@
         content="Universal Fuzzing via Large Language Models 	">
 <!--  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Universal Fuzzing via Large Language Models</title>
+  <title>Fuzz4All: Universal Fuzzing with Large Language Models</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -73,8 +73,7 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
-
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>🌌</text></svg>">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
@@ -89,29 +88,19 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Universal Fuzzing via <br> Large Language Models</h1>
-<!--          <div class="is-size-5 publication-authors">-->
-<!--            <span class="author-block">-->
-<!--              <a href="https://steven.cs.illinois.edu/">Chunqiu Steven Xia</a><sup>1</sup>,</span>-->
-<!--          </div>-->
-
-<!--          <div class="is-size-5 publication-authors">-->
-<!--            <span class="author-block"><sup>1</sup>UIUC,</span>-->
-<!--&lt;!&ndash;            <span class="author-block"><sup>2</sup>Google Research</span>&ndash;&gt;-->
-<!--          </div>-->
-
+          <h1 class="title is-1 publication-title">🌌Fuzz4All: Universal Fuzzing with <br> Large Language Models</h1>
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
-<!--              <span class="link-block">-->
-<!--                <a href="https://arxiv.org/pdf/2011.12948"-->
-<!--                   class="external-link button is-normal is-rounded is-dark">-->
-<!--                  <span class="icon">-->
-<!--                      <i class="fas fa-file-pdf"></i>-->
-<!--                  </span>-->
-<!--                  <span>Paper</span>-->
-<!--                </a>-->
-<!--              </span>-->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2308.04748.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
               <span class="link-block">
                 <a href="https://arxiv.org/abs/2308.04748"
                    class="external-link button is-normal is-rounded is-dark">
@@ -123,12 +112,21 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/"
+                <a href="https://github.com/fuzz4all/fuzz4all"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
                   <span>Code</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="https://zenodo.org/records/10456883"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-bitbucket"></i>
+                  </span>
+                  <span>Artifact</span>
                   </a>
               </span>
             </div>
@@ -138,7 +136,6 @@
     </div>
   </div>
 </section>
-
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -159,7 +156,7 @@
           <img SRC="static/images/overview.gif" style="width:900px !important;height:auto !important;">
             </div>
           <p>
-            To address these issues, we present <b><i>Fuzz4All</i>, the first fuzzer that is universal in the sense that it can target many input languages and features of these languages.</b>
+            To address these issues, we present <b>Fuzz4All, the first fuzzer that is universal in the sense that it can target many input languages and features of these languages.</b>
             The key idea behind Fuzz4All is to leverage large language models (LLMs) as an input generation and mutation engine, which enables the approach to produce diverse and realistic inputs for any practically relevant language.
             To realize this potential, we present a novel <b><font color="#0000ff">autoprompting technique</font></b>, which creates LLM prompts that are well-suited for fuzzing,
             and a novel <b><font color="#9900ff">LLM-powered fuzzing loop</font></b>, which iteratively updates the prompt to create new fuzzing inputs.
@@ -171,9 +168,10 @@
 
      <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Bugs Found</h2>
-        <p>So far, <i>Fuzz4All</i> has found <b>76</b> bugs across 9 SUTs, we will continue our current fuzzing campaigns as well as applying <i>Fuzz4All</i> on additional languages and SUTs</p>
-
+        <h2 class="title is-3">🐛 Bugs Found</h2>
+        <div class="content has-text-justified">
+        <p>So far, Fuzz4All has found <b>98</b> bugs across 9 SUTs, we will continue our current fuzzing campaigns as well as applying Fuzz4All on additional languages and SUTs</p>
+        </div>
         <table width="100%">
         <tr>
           <td width="25%"><img src="static/images/gcc.png"></td>
@@ -184,10 +182,10 @@
         <table>
           <table width="100%">
         <tr>
-          <td width="25%"><b>GCC</b>: 22 bugs</td>
-          <td width="25%"><b>Clang</b>: 20 bugs</td>
-          <td width="25%"><b>CVC5</b>: 6 bugs</td>
-          <td width="25%"><b>Z3</b>: 12 bugs</td>
+          <td width="25%"><b>GCC</b>: 30 bugs</td>
+          <td width="25%"><b>Clang</b>: 27 bugs</td>
+          <td width="25%"><b>CVC5</b>: 9 bugs</td>
+          <td width="25%"><b>Z3</b>: 14 bugs</td>
         </tr>
         <table>
 
@@ -202,7 +200,7 @@
         <table width="100%">
         <tr>
           <td width="25%"><b>Go</b>: 4 bugs</td>
-          <td width="25%"><b>Java</b>: 1 bugs</td>
+          <td width="25%"><b>Java</b>: 3 bugs</td>
           <td width="25%"><b>Qiskit</b>: 11 bugs</td>
           <td width="25%"></td>
         </tr>

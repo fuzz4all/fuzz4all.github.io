@@ -1,6 +1,6 @@
 body {
   font-family: 'Google Sans', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   /*font-weight: bold;*/
 }
 
@@ -31,7 +31,7 @@ img{
 
 .teaser .hero-body {
   padding-top: 0;
-  padding-bottom: 3rem;
+  padding-bottom: 0rem;
 }
 
 .teaser {
